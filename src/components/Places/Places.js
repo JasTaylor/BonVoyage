@@ -32,6 +32,7 @@ class Places extends Component {
     const placesJsx = this.state.places.map(place => (
       <ListGroup.Item key={place._id}>
         <Link to={`/places/${place._id}`} >{place.title}</Link>
+        <h6>{place.text}</h6><h6>{place.ci}</h6>
       </ListGroup.Item>
     ))
 
@@ -44,12 +45,14 @@ class Places extends Component {
     }
 
     return (
-      <ListGroup>
-        {this.state.places.length
-          ? placesJsx
-          : <ListGroup.Item>No places found</ListGroup.Item>
-        }
-      </ListGroup>
+      <div>
+        <ListGroup>
+          {this.state.places.length
+            ? placesJsx
+            : <ListGroup.Item>No places found</ListGroup.Item>
+          }
+        </ListGroup>
+      </div>
     )
   }
 }

@@ -9,7 +9,9 @@ class CreatePlace extends Component {
   state = {
     place: {
       title: '',
-      author: ''
+      text: '',
+      city: '',
+      country: ''
     }
   }
 

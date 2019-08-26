@@ -16,14 +16,36 @@ const BookForm = ({ place, handleChange, handleSubmit }) => (
       />
     </Form.Group>
 
-    <Form.Group controlId="author">
-      <Form.Label>Author</Form.Label>
+    <Form.Group controlId="text">
+      <Form.Label>Description</Form.Label>
       <Form.Control
         type="text"
-        placeholder="Enter an Author"
-        value={place.author}
+        placeholder="Enter an Description"
+        value={place.text}
         onChange={handleChange}
-        name="author"
+        name="text"
+        required
+      />
+    </Form.Group>
+    <Form.Group controlId="city">
+      <Form.Label>City</Form.Label>
+      <Form.Control
+        type="text"
+        placeholder="City"
+        value={place.city}
+        onChange={handleChange}
+        name="city"
+        required
+      />
+    </Form.Group>
+    <Form.Group controlId="country">
+      <Form.Label>Country</Form.Label>
+      <Form.Control
+        type="text"
+        placeholder="Country"
+        value={place.country}
+        onChange={handleChange}
+        name="country"
         required
       />
     </Form.Group>

@@ -9,6 +9,11 @@ import SignIn from '../SignIn/SignIn'
 import SignOut from '../SignOut/SignOut'
 import ChangePassword from '../ChangePassword/ChangePassword'
 
+import Places from '../Places/Places'
+import Place from '../Places/Place'
+import CreatePlace from '../Places/CreatePlace'
+import UpdatePlace from '../Places/UpdatePlace'
+
 class App extends Component {
   constructor () {
     super()
@@ -42,12 +47,41 @@ class App extends Component {
           />
         ))}
         <main className="container">
+          <Route exact path='/places' component={Places} />
           <Route path='/sign-up' render={() => (
             <SignUp alert={this.alert} setUser={this.setUser} />
           )} />
           <Route path='/sign-in' render={() => (
             <SignIn alert={this.alert} setUser={this.setUser} />
           )} />
+          <Route
+            exact
+            path='/places/:id'
+            render={() => (
+              <Place user={user} />
+            )}
+          />
+          <AuthenticatedRoute
+            user={user}
+            path="/createplace"
+            render={() => (
+              <CreatePlace
+                user={user}
+                alert={this.alert}
+              />
+            )}
+          />
+          <AuthenticatedRoute
+            user={user}
+            exact
+            path="/places/:id/edit"
+            render={() => (
+              <UpdatePlace
+                user={user}
+                alert={this.alert}
+              />
+            )}
+          />
           <AuthenticatedRoute user={user} path='/sign-out' render={() => (
             <SignOut alert={this.alert} clearUser={this.clearUser} user={user} />
           )} />

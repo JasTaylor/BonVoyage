@@ -52,7 +52,10 @@ class Place extends Component {
             <h2>{place.text}</h2>
             <h2>{place.city}</h2>
             <h2>{place.country}</h2>
-            <button onClick={this.destroy}>Delete Place</button>
+            {(this.props.user && place) && this.props.user._id === place.owner
+              ? <button onClick={this.destroy}>Delete Place</button>
+              : ''
+            }
             {(this.props.user && place) && this.props.user._id === place.owner
               ? <Button href={`#places/${place._id}/edit`}>Edit Place</Button>
               : ''

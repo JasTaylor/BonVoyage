@@ -40,15 +40,15 @@ class UpdatePlace extends Component {
 
   handleSubmit = event => {
     event.preventDefault()
+    const formData = new FormData(event.target)
+    console.log(FormData)
     axios({
       method: 'PATCH',
       url: `${apiUrl}/places/${this.state.place._id}`,
       headers: {
         'Authorization': `Bearer ${this.props.user.token}`
       },
-      data: {
-        place: this.state.place
-      }
+      data: formData
     })
       .then(response => {
         this.props.alert({

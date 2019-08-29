@@ -5,6 +5,7 @@ import apiUrl from '../../apiConfig'
 import Layout from '../Common/Layout'
 import ListGroup from 'react-bootstrap/ListGroup'
 import Button from 'react-bootstrap/Button'
+import Card from 'react-bootstrap/Card'
 // import InputGroup from 'react-bootstrap/InputGroup'
 import FormControl from 'react-bootstrap/FormControl'
 
@@ -52,18 +53,24 @@ class Places extends Component {
     const { user } = this.props
 
     const placeArray = displayPlacesList.map(place => (
-      <ListGroup.Item
+      <Card
+        style={{ width: '18rem' }}
         className={filtered && !(user._id === place.owner) ? 'd-none' : ''}
         key={place._id}
-        action
+        action={place.toString()}
         as={Link}
         to={`/places/${place._id}`}
       >
-        <h4>{place.title}</h4>
-        <h6>{place.text}</h6>
-        <h6>{place.city}</h6>
-        <h6>{place.country}</h6>
-      </ListGroup.Item>
+        <Card.Img variant="top" src={place.url} width="200" height="200"/>
+        <Card.Body>
+          <Card.Title>{place.title}</Card.Title>
+          <Card.Text>
+            {place.text}
+            {place.city}
+            {place.country}
+          </Card.Text>
+        </Card.Body>
+      </Card>
     ))
 
     return (

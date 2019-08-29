@@ -52,7 +52,7 @@ class Place extends Component {
             <h2>{place.text}</h2>
             <h2>{place.city}</h2>
             <h2>{place.country}</h2>
-            {place.url && <img src={place.url} alt={place.title} />}
+            {place.url && <img src={place.url} alt={place.title} width="400" height="400"/>}
             {(this.props.user && place) && this.props.user._id === place.owner
               ? <button onClick={this.destroy}>Delete Place</button>
               : ''

@@ -32,15 +32,17 @@ class CreatePlace extends Component {
 
   handleSubmit = event => {
     event.preventDefault()
+    const formData = new FormData(event.target)
+    console.log(FormData)
     axios({
       method: 'POST',
       url: `${apiUrl}/places`,
+      contentType: false, // Don't forget this
+      processData: false,
       headers: {
         'Authorization': `Bearer ${this.props.user.token}`
       },
-      data: {
-        place: this.state.place
-      }
+      data: formData
     })
       .then(response => {
         this.props.alert({

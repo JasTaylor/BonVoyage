@@ -2,10 +2,10 @@ import React from 'react'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 
-const BookForm = ({ place, handleChange, handleSubmit }) => (
+const PlaceForm = ({ place, handleChange, handleSubmit }) => (
   <Form onSubmit={handleSubmit}>
     <Form.Group controlId="title">
-      <Form.Label>Book Title</Form.Label>
+      <Form.Label>PLACES</Form.Label>
       <Form.Control
         type="text"
         placeholder="Enter a title"
@@ -49,10 +49,18 @@ const BookForm = ({ place, handleChange, handleSubmit }) => (
         required
       />
     </Form.Group>
+    <Form.Group controlId="file" encType="multipart/form-data">
+      <Form.Label>{place._id ? place.url : 'PLACEPIC'}</Form.Label>
+      <Form.Control
+        type="file"
+        name="file"
+        onChange={handleChange}
+      />
+    </Form.Group>
     <Button variant="primary" type="submit">
       Submit
     </Button>
   </Form>
 )
 
-export default BookForm
+export default PlaceForm

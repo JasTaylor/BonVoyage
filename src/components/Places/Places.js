@@ -67,10 +67,10 @@ class Places extends Component {
     ))
 
     return (
-      <Layout md="12" lg="8">
-        <div className="d-flex justify-content-between mb-2">
+      <Layout>
+        <div>
           <h3>Places</h3>
-          <div className="flex-grow-1 d-flex align-items-center justify-content-end">
+          <div>
             {
               <Fragment>
                 <FormControl
@@ -82,7 +82,6 @@ class Places extends Component {
               </Fragment>
             }
             <Button variant={sorted ? 'outline-primary' : 'outline-secondary'} onClick={this.handleSort}>
-              <i className="icofont-sort" />
             </Button>
           </div>
         </div>

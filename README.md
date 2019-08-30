@@ -1,4 +1,4 @@
-[![APP Logo](https://i.imgur.com/PjXNIt6.jpg)]
+![APP Logo](https://i.imgur.com/PjXNIt6.jpg)
 
 
 # Bon Voyage:

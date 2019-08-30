@@ -33,7 +33,6 @@ class CreatePlace extends Component {
   handleSubmit = event => {
     event.preventDefault()
     const formData = new FormData(event.target)
-    console.log(FormData)
     axios({
       method: 'POST',
       url: `${apiUrl}/places`,
@@ -52,7 +51,7 @@ class CreatePlace extends Component {
         })
         this.props.history.push(`/places/${response.data.place._id}`)
       })
-      .catch(console.error)
+      .catch(err => this.setState({ error: err.message }))
   }
 
   render () {

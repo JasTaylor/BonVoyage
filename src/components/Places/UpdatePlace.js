@@ -14,7 +14,6 @@ class UpdatePlace extends Component {
     axios(`${apiUrl}/places/${this.props.match.params.id}`)
       .then(response => {
         this.setState({ place: response.data.place })
-        console.log(response.data.place)
       })
       .catch(() => this.props.alert({
         heading: 'Error',
@@ -41,7 +40,6 @@ class UpdatePlace extends Component {
   handleSubmit = event => {
     event.preventDefault()
     const formData = new FormData(event.target)
-    console.log(FormData)
     axios({
       method: 'PATCH',
       url: `${apiUrl}/places/${this.state.place._id}`,
@@ -58,7 +56,7 @@ class UpdatePlace extends Component {
         })
         this.props.history.push(`/places/${this.state.place._id}`)
       })
-      .catch(console.error)
+      .catch(err => this.setState({ error: err.message }))
   }
 
   render () {

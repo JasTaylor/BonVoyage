@@ -12,16 +12,13 @@ class Place extends Component {
   }
 
   async componentDidMount () {
-    console.log(this.props.user)
     try {
       const response = await axios(`${apiUrl}/places/${this.props.match.params.id}`)
 
       this.setState({
         place: response.data.place
       })
-    } catch (error) {
-      console.error(error)
-    }
+    } catch (err) { this.setState({ err }) }
   }
 
   destroy = () => {
@@ -33,7 +30,7 @@ class Place extends Component {
       }
     })
       .then(() => this.setState({ deleted: true }))
-      .catch(console.error)
+      .catch(err => this.setState({ error: err.message }))
   }
 
   render () {

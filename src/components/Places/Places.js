@@ -3,10 +3,9 @@ import { Link } from 'react-router-dom'
 import axios from 'axios'
 import apiUrl from '../../apiConfig'
 import Layout from '../Common/Layout'
-import ListGroup from 'react-bootstrap/ListGroup'
+import CardColumns from 'react-bootstrap/CardColumns'
 import Button from 'react-bootstrap/Button'
 import Card from 'react-bootstrap/Card'
-import CardDeck from 'react-bootstrap/CardDeck'
 // import InputGroup from 'react-bootstrap/InputGroup'
 import FormControl from 'react-bootstrap/FormControl'
 
@@ -54,27 +53,24 @@ class Places extends Component {
     const { user } = this.props
 
     const placeArray = displayPlacesList.map(place => (
-      <CardDeck
-        style={{ width: '18rem', display: 'flex', flexDirection: 'row' }}
+      <Card
+        style={{ width: '18rem' }}
         className={filtered && !(user._id === place.owner) ? 'd-none' : ''}
         key={place._id}
         action={place.toString()}
         as={Link}
         to={`/places/${place._id}`}
-        fluid
       >
-        <Card style={{ flex: 1 }} >
-          <Card.Img variant="top" src={place.url} width="200" height="200"/>
-          <Card.Body>
-            <Card.Title>{place.title}</Card.Title>
-            <Card.Text>
-              {place.text}
-              {place.city}
-              {place.country}
-            </Card.Text>
-          </Card.Body>
-        </Card>
-      </CardDeck>
+        <Card.Img variant="top" src={place.url} width="200" height="200"/>
+        <Card.Body>
+          <Card.Title>{place.title}</Card.Title>
+          <Card.Text>
+            {place.text}
+            {place.city}
+            {place.country}
+          </Card.Text>
+        </Card.Body>
+      </Card>
     ))
 
     return (
@@ -92,13 +88,13 @@ class Places extends Component {
                 />
               </Fragment>
             }
-            <Button variant={sorted ? 'outline-primary' : 'outline-secondary'} onClick={this.handleSort}>A-Z
+            <Button variant={sorted ? 'outline-primary' : 'outline-secondary'} onClick={this.handleSort}>
             </Button>
           </div>
         </div>
-        <ListGroup>
+        <CardColumns>
           {placeArray}
-        </ListGroup>
+        </CardColumns>
       </Layout>
     )
   }

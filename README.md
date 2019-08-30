@@ -61,9 +61,9 @@ I began my planning process with my wireframes and ERD. I started building my ba
 - I would like to add a like feature for each place
 
 ## Images
-[![APP Logo](https://i.imgur.com/PjXNIt6.jpg)]
-[![APP Logo](https://i.imgur.com/PjXNIt6.jpg)]
-[![APP Logo](https://i.imgur.com/PjXNIt6.jpg)]
+![APP Logo](https://i.imgur.com/PjXNIt6.jpg)
+![APP Logo](https://i.imgur.com/PjXNIt6.jpg)
+![APP Logo](https://i.imgur.com/PjXNIt6.jpg)
 
 ## WIREFRAME
-[![ERD](https://i.imgur.com/dkEPOVZ.jpg)]
+![ERD](https://i.imgur.com/dkEPOVZ.jpg)

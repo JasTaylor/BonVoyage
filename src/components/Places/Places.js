@@ -61,6 +61,7 @@ class Places extends Component {
         action={place.toString()}
         as={Link}
         to={`/places/${place._id}`}
+        fluid
       >
         <Card style={{ flex: 1 }} >
           <Card.Img variant="top" src={place.url} width="200" height="200"/>

@@ -89,7 +89,7 @@ class Places extends Component {
               </Fragment>
             }
             <Button variant={sorted ? 'outline-primary' : 'outline-secondary'} onClick={this.handleSort}>
-            Alphabetize</Button>
+            </Button>
           </div>
         </div>
         <CardColumns>

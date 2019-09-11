@@ -1,15 +1,17 @@
 @import '~bootstrap/scss/bootstrap';
 @import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
 
-.button.btn {
-  margin-right: 20px;
-}
 a:hover {
    color: green;
 }
 
+header {
+  background-color: pink;
+}
+
 body {
   font-family: 'Muli', sans-serif;
+  background-color: rgba(0, 0, 0, .05);
 }
 
 .card {

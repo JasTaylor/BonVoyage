@@ -26,10 +26,9 @@ const alwaysOptions = (
 
 const Header = ({ user }) => (
   <Fragment>
-    { <img src="https://i.imgur.com/UzMtncK.jpg" /> }
     <Navbar bg="dark" variant="dark" expand="md">
       <Navbar.Brand href="#">
-      Bon Voyage!
+        { <img width="330" className='img-responsive' src="https://i.imgur.com/UzMtncK.jpg" /> }
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">

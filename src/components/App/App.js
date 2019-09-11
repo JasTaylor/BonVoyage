@@ -13,6 +13,7 @@ import Places from '../Places/Places'
 import Place from '../Places/Place'
 import CreatePlace from '../Places/CreatePlace'
 import UpdatePlace from '../Places/UpdatePlace'
+import InlineStyleExample from '../Places/Home'
 
 class App extends Component {
   constructor () {
@@ -47,6 +48,8 @@ class App extends Component {
           />
         ))}
         <main className="container">
+          <Route path='/BonVoyage#' render={() => (
+            <InlineStyleExample />)} />
           <Route exact path='/places' component={Places} />
           <Route path='/sign-up' render={() => (
             <SignUp alert={this.alert} setUser={this.setUser} />

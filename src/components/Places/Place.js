@@ -26,7 +26,10 @@ class Place extends Component {
   destroy = () => {
     axios({
       url: `${apiUrl}/places/${this.props.match.params.id}`,
-      method: 'DELETE'
+      method: 'DELETE',
+      headers: {
+        'Authorization': `Token token=${this.props.user.token}`
+      }
     })
       .then(() => this.setState({ deleted: true }))
       .catch(err => this.setState({ error: err.message }))
@@ -51,7 +54,9 @@ class Place extends Component {
                   <h2>{place.text}</h2>
                   <h5>City: {place.city}</h5>
                   <h5>Country: {place.country}</h5>
-                  {<Button variant="danger" onClick={this.destroy}>Delete Place</Button>
+                  {(this.props.user && place) && this.props.user._id === place.owner
+                    ? <Button variant="danger" onClick={this.destroy}>Delete Place</Button>
+                    : ''
                   }
                   {(this.props.user && place) && this.props.user._id === place.owner
                     ? <Button variant="dark" href={`#places/${place._id}/edit`}>Edit Place</Button>

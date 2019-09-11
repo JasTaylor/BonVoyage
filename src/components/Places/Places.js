@@ -3,9 +3,11 @@ import { Link } from 'react-router-dom'
 import axios from 'axios'
 import apiUrl from '../../apiConfig'
 import Layout from '../Common/Layout'
-import CardColumns from 'react-bootstrap/CardColumns'
+// import CardDeck from 'react-bootstrap/CardColumns'
 import Button from 'react-bootstrap/Button'
 import Card from 'react-bootstrap/Card'
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
 // import InputGroup from 'react-bootstrap/InputGroup'
 import FormControl from 'react-bootstrap/FormControl'
 
@@ -54,29 +56,31 @@ class Places extends Component {
 
     const placeArray = displayPlacesList.map(place => (
       <Card
-        style={{ width: '18rem' }}
+        border="dark"
+        style={{ width: '17rem' }}
         className={filtered && !(user._id === place.owner) ? 'd-none' : ''}
         key={place._id}
         action={place.toString()}
         as={Link}
         to={`/places/${place._id}`}
       >
-        <Card.Img variant="top" src={place.url} width="200" height="200"/>
         <Card.Body>
-          <Card.Title>{place.title}</Card.Title>
-          <Card.Text>
-            {place.text}
-            {place.city}
-            {place.country}
+          <Card.Img variant="top" src={place.url} width="200" height="200"/>
+          <Card.Title><h3>{place.title}</h3></Card.Title>
+          <Card.Text><h6>
+            <br />{place.text}
+            <br />City: {place.city}
+            <br />Country: {place.country}
+          </h6>
           </Card.Text>
         </Card.Body>
       </Card>
     ))
-
     return (
       <Layout>
         <div>
-          <h3>Places</h3>
+          <h3>All Places</h3>
+          <h6> Sort by Country or in Alphabetical Order, Click on Location for More</h6>
           <div>
             {
               <Fragment>
@@ -84,17 +88,19 @@ class Places extends Component {
                   placeholder="Search by Country"
                   aria-label="Search"
                   onChange={this.handleChange}
-                  className="border-secondary d-inline mx-lg-5 mx-md-3 mx-1"
                 />
               </Fragment>
             }
-            <Button variant={sorted ? 'outline-primary' : 'outline-secondary'} onClick={this.handleSort}>
-            </Button>
+            <Button variant={sorted ? 'outline-dark' : 'outline-dark'} onClick={this.handleSort}>SORT ALL A-Z</Button>
           </div>
         </div>
-        <CardColumns>
-          {placeArray}
-        </CardColumns>
+        <div>
+          <Container>
+            <Row>
+              {placeArray}
+            </Row>
+          </Container>
+        </div>
       </Layout>
     )
   }

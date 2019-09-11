@@ -1,16 +1,37 @@
 @import '~bootstrap/scss/bootstrap';
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+a:hover {
+   color: green;
+}
+
+body {
+  font-family: 'Muli', sans-serif;
+}
 
 .card {
-   margin: 1rem;
-   background: white;
-   box-shadow: 2px 4px 25px rgba(0, 0, 0, .1);
-   border-radius: 12px;
-   overflow: hidden;
-   transition: all .2s linear;
-   justify-content: flex-start;
+   background: rgba(129, 232, 12, .19);
+   color: black;
+   box-shadow: 2px 4px 25px rgba(0, 0, 0, .3);
+   border-radius: 32px;
+   align-items: center;
+   text-align: center;
+   font-family: 'Muli', sans-serif;
+   justify-content: center;
+   margin-right: auto;
+   margin-left: auto;
+   margin-top: 40px;
 }
 
 .card:hover {
   box-shadow: 2px 8px 45px rgba(0, 0, 0, .15);
   transform: translate3D(0, -2px, 0);
+}
+
+h3 {
+text-align: center;
+}
+
+h6 {
+text-align: center;
 }

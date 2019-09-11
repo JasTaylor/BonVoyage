@@ -2,8 +2,10 @@ import React, { Component, Fragment } from 'react'
 import { withRouter, Link, Redirect } from 'react-router-dom'
 import axios from 'axios'
 import apiUrl from '../../apiConfig'
-
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
 import Button from 'react-bootstrap/Button'
+import Col from 'react-bootstrap/Col'
 
 class Place extends Component {
   state = {
@@ -45,19 +47,27 @@ class Place extends Component {
       <div>
         { place && (
           <Fragment>
-            <h1>{place.title}</h1>
-            <h2>{place.text}</h2>
-            <h2>{place.city}</h2>
-            <h2>{place.country}</h2>
-            {place.url && <img src={place.url} alt={place.title} width="400" height="400"/>}
-            {(this.props.user && place) && this.props.user._id === place.owner
-              ? <button onClick={this.destroy}>Delete Place</button>
-              : ''
-            }
-            {(this.props.user && place) && this.props.user._id === place.owner
-              ? <Button href={`#places/${place._id}/edit`}>Edit Place</Button>
-              : ''
-            }
+            <Container>
+              <Row>
+                <Col>
+                  <h1>{place.title}</h1>
+                  <h2>{place.text}</h2>
+                  <h5>City: {place.city}</h5>
+                  <h5>Country: {place.country}</h5>
+                  {(this.props.user && place) && this.props.user._id === place.owner
+                    ? <Button variant="danger" onClick={this.destroy}>Delete Place</Button>
+                    : ''
+                  }
+                  {(this.props.user && place) && this.props.user._id === place.owner
+                    ? <Button variant="dark" href={`#places/${place._id}/edit`}>Edit Place</Button>
+                    : ''
+                  }
+                </Col>
+                <Col>
+                  {place.url && <img src={place.url} alt={place.title} width="400" height="400"/>}
+                </Col>
+              </Row>
+            </Container>
             <Link to="/places">Back to all Places</Link>
           </Fragment>
         )}

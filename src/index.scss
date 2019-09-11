@@ -1,6 +1,9 @@
 @import '~bootstrap/scss/bootstrap';
 @import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
 
+.button.btn {
+  margin-right: 20px;
+}
 a:hover {
    color: green;
 }
@@ -27,7 +30,10 @@ body {
   box-shadow: 2px 8px 45px rgba(0, 0, 0, .15);
   transform: translate3D(0, -2px, 0);
 }
-
+.col {
+  margin-top: 30px;
+  font-weight: bold;
+}
 h3 {
 text-align: center;
 }

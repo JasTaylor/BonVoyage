@@ -69,6 +69,7 @@ class Places extends Component {
           <Card.Title><h3>{place.title}</h3></Card.Title>
           <Card.Text><h6>
             <br />{place.text}
+            <br />
             <br />City: {place.city}
             <br />Country: {place.country}
           </h6>
